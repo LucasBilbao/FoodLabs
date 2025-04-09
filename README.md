@@ -1,59 +1,73 @@
-# Recipes
+# Recipes Website
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
+Welcome to the Recipes Website! This project is a collection of delicious recipes from around the world, designed to inspire your cooking adventures.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- Browse a variety of recipes by category.
+- Search for recipes by ingredients or keywords.
+- View detailed instructions and ingredient lists.
+- Save your favorite recipes for easy access.
+- Responsive design for seamless use on any device.
 
-```bash
-ng serve
-```
+## Technologies Used
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Frontend**: Angular, HTML, SCSS, JavaScript
+- **Other Tools**: Bootstrap
 
-## Code scaffolding
+## Installation
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. Clone the repository:
 
 ```bash
-ng generate --help
+git clone https://github.com/LucasBilbao/Recipes.git
 ```
 
-## Building
-
-To build the project run:
+2. Navigate to the project directory:
 
 ```bash
-ng build
+cd Recipes
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+3. Install dependencies:
 
 ```bash
-ng test
+npm install
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+4. Start the development server:
 
 ```bash
-ng e2e
+npm start
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Contributing
 
-## Additional Resources
+Contributions are welcome! Please follow these steps:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. Fork the repository.
+2. Create a new branch:
+
+```bash
+git checkout -b feature-name
+```
+
+3. Commit your changes:
+
+```bash
+git commit -m "Add feature-name"
+```
+
+4. Push to your branch:
+
+```bash
+git push origin feature-name
+```
+
+5. Open a pull request.
+
+## Contact
+
+For questions or suggestions, feel free to reach out at [lucasbm789@gmail.com].
+
+Happy cooking!
