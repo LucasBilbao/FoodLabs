@@ -1,0 +1,10 @@
+@use "../../../globals.scss" as globals;
+
+article.center {
+  section {
+    ul,
+    ol {
+      padding-left: globals.pxToRem(40);
+    }
+  }
+}

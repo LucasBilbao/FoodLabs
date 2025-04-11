@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./globals.scss" as globals;
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  font-size: #{globals.$PX_SIZE}px;
+}
+
+body {
+  min-height: 100dvh;
+  overflow-x: hidden;
+  background: white;
+  margin: 0;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+fieldset {
+  all: unset;
+  legend {
+    all: unset;
+  }
+}
+
+footer {
+  margin-top: auto;
+}
+
+input {
+  all: unset;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
