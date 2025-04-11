@@ -1,0 +1,38 @@
+@use "../../../../globals.scss" as globals;
+
+article {
+  border-radius: globals.pxToRem(33);
+  overflow: hidden;
+  background: #f5f2f2;
+
+  img {
+    width: 100%;
+    aspect-ratio: 404/212;
+    object-fit: cover;
+  }
+
+  section {
+    margin: globals.pxToRem(30) globals.pxToRem(38);
+
+    h3 {
+      @include globals.font(32, 36, bold);
+      margin-bottom: globals.pxToRem(10);
+    }
+
+    p {
+      @include globals.font(20, 24);
+      margin-bottom: globals.pxToRem(10);
+      margin-top: globals.pxToRem(18);
+    }
+
+    a {
+      display: inline-block;
+      background-color: globals.$MAIN_COLOR;
+      color: white;
+      @include globals.font(20, 24, bold);
+      padding: globals.pxToRem(9) globals.pxToRem(33);
+      margin-top: globals.pxToRem(40);
+      border-radius: globals.pxToRem(33);
+    }
+  }
+}

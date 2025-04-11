@@ -1,0 +1,13 @@
+@use "../../../globals.scss" as globals;
+
+:host {
+  display: inline-block;
+  margin-top: globals.pxToRem(58);
+  width: 100%;
+  ol.recipes.unset {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: globals.pxToRem(38);
+    width: 100%;
+  }
+}

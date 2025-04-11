@@ -1,1 +1,50 @@
 @use "../../../globals.scss" as globals;
+
+section.center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: globals.pxToRem(20);
+  padding: globals.pxToRem(34) 0;
+
+  h1 {
+    @include globals.font(26, 30, bold);
+  }
+
+  nav {
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: globals.pxToRem(46);
+      li {
+        @include globals.font(26, 30);
+      }
+    }
+  }
+
+  form {
+    fieldset {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f5f2f2;
+      border-radius: globals.pxToRem(24);
+      column-gap: globals.pxToRem(5);
+      padding: globals.pxToRem(14) globals.pxToRem(23);
+
+      input {
+        @include globals.font(16, 20);
+        color: #444444;
+
+        &::placeholder {
+          color: #858585;
+        }
+      }
+
+      mat-icon {
+        color: #858585;
+      }
+    }
+  }
+}

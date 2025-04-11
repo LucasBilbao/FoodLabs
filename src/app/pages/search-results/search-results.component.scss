@@ -1,0 +1,16 @@
+@use "../../../globals.scss" as globals;
+
+:host {
+  section.center {
+    margin-top: globals.pxToRem(50);
+    h1 {
+      text-align: center;
+      @include globals.font(39, 33, bold);
+    }
+  }
+
+  mat-paginator {
+    margin-top: globals.pxToRem(50);
+    background: white;
+  }
+}
