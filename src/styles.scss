@@ -18,6 +18,14 @@ body {
   overflow-x: hidden;
   background: white;
   margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.unset {
+  all: unset;
+  li {
+    all: unset;
+  }
 }
 
 button {
@@ -45,11 +53,8 @@ input {
   all: unset;
 }
 
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+.center {
+  width: 80%;
+  max-width: 1540px;
+  margin: auto;
 }

@@ -7,6 +7,16 @@
 
   header {
     border-top: globals.pxToRem(30) solid globals.$MAIN_COLOR;
+    position: sticky;
+    top: globals.pxToRem(-30);
+    background: white;
+    border-bottom: globals.pxToRem(1) solid rgba(0, 0, 0, 0.149);
+    box-shadow: 0px globals.pxToRem(3) globals.pxToRem(20) globals.pxToRem(2)
+      rgba(0, 0, 0, 0.1);
+  }
+
+  main {
+    margin-bottom: globals.pxToRem(75);
   }
 
   footer {

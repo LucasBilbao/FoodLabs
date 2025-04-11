@@ -1,10 +1,29 @@
 @use "../../../globals.scss" as globals;
 
 article.center {
+  margin-top: globals.pxToRem(48);
   section {
+    @include globals.font(24, 28);
+    h3 {
+      font-weight: bold;
+      margin-top: globals.pxToRem(28);
+    }
+
     ul,
     ol {
       padding-left: globals.pxToRem(40);
+      margin-top: globals.pxToRem(28);
+
+      li {
+        & + li {
+          margin-top: globals.pxToRem(15);
+        }
+      }
+    }
+
+    p {
+      margin-top: globals.pxToRem(28);
+      text-indent: globals.pxToRem(40);
     }
   }
 }

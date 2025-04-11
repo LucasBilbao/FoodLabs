@@ -1,0 +1,10 @@
+@use "../../../globals.scss" as globals;
+
+section.center {
+  margin-top: globals.pxToRem(77);
+
+  h1 {
+    text-align: center;
+    @include globals.font(39, 33, bold);
+  }
+}
