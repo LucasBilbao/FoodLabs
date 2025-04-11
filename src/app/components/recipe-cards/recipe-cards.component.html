@@ -1,0 +1,7 @@
+<ol class="recipes">
+  @for (recipe of recipes(); track $index) {
+  <li>
+    <fl-recipe-card [recipe]="recipe" />
+  </li>
+  }
+</ol>

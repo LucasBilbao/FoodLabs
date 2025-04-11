@@ -1,0 +1,11 @@
+<section class="center">
+  <h1>Results</h1>
+  <fl-recipe-cards [recipes]="recipes()" />
+</section>
+<mat-paginator
+  [length]="34"
+  [pageSize]="10"
+  aria-label="Select page"
+  (page)="handlePageEvent($event)"
+>
+</mat-paginator>

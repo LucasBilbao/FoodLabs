@@ -1,0 +1,27 @@
+@use "../globals.scss" as globals;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  header {
+    border-top: globals.pxToRem(30) solid globals.$MAIN_COLOR;
+  }
+
+  footer {
+    background: globals.$MAIN_COLOR;
+    height: globals.pxToRem(75);
+    button {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      mat-icon {
+        color: white;
+        zoom: 3;
+      }
+    }
+  }
+}
