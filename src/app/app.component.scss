@@ -3,7 +3,8 @@
 :host {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex-grow: 1;
+  //min-height: ;
 
   header {
     border-top: globals.pxToRem(30) solid globals.$MAIN_COLOR;
@@ -17,6 +18,7 @@
 
   main {
     margin-bottom: globals.pxToRem(75);
+    width: 100%;
   }
 
   footer {

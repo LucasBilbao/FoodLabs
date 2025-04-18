@@ -16,6 +16,8 @@
 body {
   min-height: 100dvh;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
   background: white;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;

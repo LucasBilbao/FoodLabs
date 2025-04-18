@@ -53,7 +53,7 @@ export class RecipesService {
     this.isLoading$$.next(true);
     this.http.get<RecipeLong>(id).subscribe((recipe: RecipeLong) => {
       this.recipe$$.next(recipe);
-    this.isLoading$$.next(false);
+      this.isLoading$$.next(false);
     });
   }
 }

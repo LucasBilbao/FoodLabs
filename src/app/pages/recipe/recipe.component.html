@@ -6,8 +6,7 @@
     <ul>
       @for (ingredient of recipe.ingredients; track $index) {
       <li>
-        <b>{{ ingredient.quantity }} {{ ingredient.unit }}</b>
-        {{ ingredient.name }}
+        <fl-ingredient [ingredient]="ingredient" />
       </li>
       }
     </ul>

@@ -2,7 +2,11 @@
   <fl-header />
 </header>
 <main>
+@if ( isLoading$() | async ) {
+  <fl-loader />
+} @else {
   <router-outlet />
+}
 </main>
 <footer>
   <button (click)="scrollToTop()">

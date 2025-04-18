@@ -6,10 +6,11 @@ import {RecipesService} from '../../services/recipes.service';
 import {CommonModule} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 import {BaseSubscribableComponent} from '../../shared/base-subscribable.component';
+import {IngredientComponent} from '../../components/ingredient/ingredient.component';
 
 @Component({
   selector: 'fl-recipe',
-  imports: [BgComponent, CommonModule],
+  imports: [BgComponent, CommonModule, IngredientComponent],
   templateUrl: './recipe.component.html',
   styleUrl: './recipe.component.scss',
 })
