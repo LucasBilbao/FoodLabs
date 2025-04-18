@@ -1,6 +1,6 @@
-import { Component, input } from '@angular/core';
-import { Recipe } from '../../interfaces/recipe.interface';
-import { RecipeCardComponent } from './recipe-card/recipe-card.component';
+import {Component, input} from '@angular/core';
+import {RecipeShort} from '../../interfaces/recipe.interface';
+import {RecipeCardComponent} from './recipe-card/recipe-card.component';
 
 @Component({
   selector: 'fl-recipe-cards',
@@ -9,5 +9,5 @@ import { RecipeCardComponent } from './recipe-card/recipe-card.component';
   styleUrl: './recipe-cards.component.scss',
 })
 export class RecipeCardsComponent {
-  public recipes = input.required<Recipe[]>();
+  public recipes = input.required<RecipeShort[]>();
 }

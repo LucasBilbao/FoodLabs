@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 
 export const routes: Routes = [
   {
@@ -7,7 +7,7 @@ export const routes: Routes = [
       import('./pages/home/home.component').then((m) => m.HomeComponent),
   },
   {
-    path: 'recipe',
+    path: 'recipe/:id',
     loadComponent: () =>
       import('./pages/recipe/recipe.component').then((m) => m.RecipeComponent),
   },

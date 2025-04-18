@@ -23,6 +23,7 @@ article {
       @include globals.font(20, 24);
       margin-bottom: globals.pxToRem(10);
       margin-top: globals.pxToRem(18);
+      min-height: globals.pxToRem(48);
     }
 
     a {

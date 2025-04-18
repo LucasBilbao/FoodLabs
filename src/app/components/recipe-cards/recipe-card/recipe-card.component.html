@@ -3,6 +3,6 @@
   <section>
     <h3>{{ recipe().title }}</h3>
     <p>{{ recipe().description | truncate : 60 }}</p>
-    <a routerLink="/recipe">See details</a>
+    <a [routerLink]="['/recipe', recipe().id]">See details</a>
   </section>
 </article>

@@ -1,11 +1,16 @@
 <section class="center">
   <h1>Results</h1>
-  <fl-recipe-cards [recipes]="recipes()" />
+  @if ( recipes$() | async; as recipes ) {
+  <fl-recipe-cards [recipes]="recipes" />
+  }
 </section>
+@if ( total$() | async; as total ) {
 <mat-paginator
-  [length]="34"
-  [pageSize]="10"
-  aria-label="Select page"
   (page)="handlePageEvent($event)"
+  [length]="total"
+  [pageSize]="12"
+  [pageIndex]="pageIndex()"
+  aria-label="Select page"
 >
 </mat-paginator>
+}

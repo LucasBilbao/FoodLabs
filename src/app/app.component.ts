@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { HeaderComponent } from './components/header/header.component';
-import { RouterOutlet } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
+import {Component} from '@angular/core';
+import {HeaderComponent} from './components/header/header.component';
+import {RouterOutlet} from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
+import {BaseScrollToTopComponent} from './shared/base-scroll-to-top.component';
 
 @Component({
   selector: 'fl-root',
@@ -9,11 +10,5 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  public scrollToTop(): void {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }
+export class AppComponent extends BaseScrollToTopComponent {
 }

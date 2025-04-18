@@ -1,10 +1,20 @@
-import { Ingredient } from './ingredient.interface';
+import {Ingredient} from './ingredient.interface';
+import {Tag} from './tag.interface';
 
-export interface Recipe {
-  ingredients?: Ingredient[];
-  instructions?: string[];
+export interface RecipeShort {
+  id: string
   title: string;
   description: string;
   imgUrl: string;
-  category?: string;
+  tags: Tag[];
+}
+
+export interface RecipeLong extends RecipeShort{
+  ingredients: Ingredient[];
+  instructions: string[];
+}
+
+export interface RecipesResponse {
+  recipes: RecipeShort[];
+  total: number;
 }

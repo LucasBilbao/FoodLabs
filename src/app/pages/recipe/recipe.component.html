@@ -1,9 +1,10 @@
-<fl-bg [bgImg]="recipe().imgUrl" [title]="recipe().title" />
-<article class="center">
+@if ( recipe$() | async; as recipe ) {
+<fl-bg [bgImg]="recipe.imgUrl" [title]="recipe.title" />
+<article class="center" >
   <section>
     <h3>Ingredients</h3>
     <ul>
-      @for (ingredient of recipe().ingredients; track $index) {
+      @for (ingredient of recipe.ingredients; track $index) {
       <li>
         <b>{{ ingredient.quantity }} {{ ingredient.unit }}</b>
         {{ ingredient.name }}
@@ -14,7 +15,7 @@
   <section>
     <h3>Instructions</h3>
     <ol>
-      @for (instruction of recipe().instructions; track $index) {
+      @for (instruction of recipe.instructions; track $index) {
       <li>
         {{ instruction }}
       </li>
@@ -24,7 +25,8 @@
   <section>
     <h3>Description</h3>
     <p>
-      {{ recipe().description }}
+      {{ recipe.description }}
     </p>
   </section>
 </article>
+}
