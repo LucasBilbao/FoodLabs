@@ -11,7 +11,7 @@ export class UriBuilder {
     [key: string]: string | number;
   }): UriBuilder {
     this.parameters = Object.entries(parameters).reduce(
-      (prev, [key, value]) => `${prev}${key}=${value}&`,
+      (prev, [key, value]) => value ? `${prev}${key}=${value}&` : '',
       ''
     );
     return this;

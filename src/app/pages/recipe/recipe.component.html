@@ -1,3 +1,6 @@
+@if (isLoading$() | async) {
+  <fl-loader />
+}
 @if ( recipe$() | async; as recipe ) {
 <fl-bg [bgImg]="recipe.imgUrl" [title]="recipe.title" />
 <article class="center" >
@@ -29,3 +32,4 @@
   </section>
 </article>
 }
+

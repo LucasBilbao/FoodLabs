@@ -1,0 +1,9 @@
+<section class="center">
+  <ul>
+    @for (tag of (tags$() | async); track $index) {
+      <li>
+        <fl-tag [tag]="tag" />
+      </li>
+    }
+  </ul>
+</section>

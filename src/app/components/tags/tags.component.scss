@@ -1,0 +1,18 @@
+@use "../../../globals.scss" as globals;
+
+section.center{
+  margin-top: globals.pxToRem(60);
+
+  ul{
+    width: 100%;
+    all: unset;
+    display: flex;
+    column-gap: globals.pxToRem(30);
+    justify-content: center;
+    align-items: center;
+
+    li{
+      all: unset;
+    }
+  }
+}

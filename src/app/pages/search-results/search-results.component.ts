@@ -7,10 +7,13 @@ import {Observable, of} from 'rxjs';
 import {CommonModule} from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
 import {BaseSubscribableComponent} from '../../shared/base-subscribable.component';
+import {TagsComponent} from '../../components/tags/tags.component';
+import {RecipesFacade} from '../../facades/recipes.facade';
+import {LoaderComponent} from '../../components/loader/loader.component';
 
 @Component({
   selector: 'fl-search-results',
-  imports: [RecipeCardsComponent, MatPaginatorModule, CommonModule],
+  imports: [RecipeCardsComponent, MatPaginatorModule, CommonModule, TagsComponent, LoaderComponent],
   templateUrl: './search-results.component.html',
   styleUrl: './search-results.component.scss',
 })
@@ -18,13 +21,17 @@ export class SearchResultsComponent extends BaseSubscribableComponent implements
   public recipes$ = signal<Observable<RecipeShort[]>>(of([]));
   public total$ = signal<Observable<number>>(of(0));
   public pageIndex = signal(0);
+  public isLoading$ = signal<Observable<boolean>>(of(false));
 
-  constructor(private recipesService: RecipesService, private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private recipesService: RecipesService, private activatedRoute: ActivatedRoute, private router: Router, private recipesFacade: RecipesFacade) {
     super();
-    this.addSubscription(activatedRoute.queryParams.subscribe(({ page }) => {
+    this.isLoading$.set(this.recipesFacade.isLoading$);
+    this.addSubscription(activatedRoute.queryParams.subscribe(({ page, tags }) => {
       const pageNum = parseInt(page) || 1;
+      const finalTags = Array.isArray(tags) && tags.length > 0 ? tags.join(',') : undefined;
+
       this.pageIndex.set(pageNum - 1);
-      RecipesService.page.next(pageNum);
+      this.recipesService.getRecipes({ page: pageNum, tags: finalTags });
     }));
   }
 

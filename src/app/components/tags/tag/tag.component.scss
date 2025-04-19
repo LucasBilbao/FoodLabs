@@ -1,0 +1,15 @@
+@use "../../../../globals.scss" as globals;
+
+
+button{
+  cursor: pointer;
+  border: globals.pxToRem(2) solid globals.$MAIN_COLOR;
+  border-radius: globals.pxToRem(15);
+  padding: globals.pxToRem(6) globals.pxToRem(12);
+
+
+  &:hover, &.selected{
+    background: globals.$MAIN_COLOR;
+    color: white;
+  }
+}

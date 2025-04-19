@@ -1,3 +1,7 @@
+<fl-tags />
+@if ( isLoading$() | async ) {
+  <fl-loader />
+} @else {
 <section class="center">
   <h1>Results</h1>
   @if ( recipes$() | async; as recipes ) {
@@ -13,4 +17,5 @@
   aria-label="Select page"
 >
 </mat-paginator>
+}
 }
