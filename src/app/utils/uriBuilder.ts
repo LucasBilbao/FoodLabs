@@ -7,11 +7,9 @@ export class UriBuilder {
     return this;
   }
 
-  public setParameters(parameters: {
-    [key: string]: string | number;
-  }): UriBuilder {
+  public setParameters<T>(parameters: T | any): UriBuilder {
     this.parameters = Object.entries(parameters).reduce(
-      (prev, [key, value]) => value ? `${prev}${key}=${value}&` : '',
+      (prev, [key, value]) => value ? `${prev}${key}=${value}&` : prev,
       ''
     );
     return this;

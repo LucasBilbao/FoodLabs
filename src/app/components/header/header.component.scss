@@ -33,6 +33,10 @@ section.center {
       column-gap: globals.pxToRem(5);
       padding: globals.pxToRem(14) globals.pxToRem(23);
 
+      label{
+        display: none;
+      }
+
       input {
         @include globals.font(16, 20);
         color: #444444;
@@ -44,6 +48,10 @@ section.center {
 
       mat-icon {
         color: #858585;
+      }
+
+      button.inactive{
+        visibility: hidden;
       }
     }
   }

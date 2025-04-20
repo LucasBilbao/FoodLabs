@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {RecipeLong, RecipeShort, RecipesResponse} from '../interfaces/recipe.interface';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {BehaviorSubject, debounceTime, Observable, Subject} from 'rxjs';
 import {UriBuilder} from '../utils/uriBuilder';
+import {GetRecipesQueries} from '../interfaces/getRecipesQueries.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -45,14 +46,15 @@ export class RecipesService {
     this.total$$.next(value);
   }
 
-  public getRecipes(queries: { limit?: number, page?: number, tags?: string } = { limit: 12, page: 1, tags: undefined })  {
+  public getRecipes(queries: GetRecipesQueries = { limit: 12, page: 1, tags: undefined, search: '' })  {
     queries.page = queries.page || 1;
     queries.limit = queries.limit || 12;
     queries.tags = queries.tags || undefined;
-// debugger;
+    queries.search = queries.search || '';
+
     this.isLoading$$.next(true);
-    const uri = new UriBuilder().setPath('').setParameters(queries).get();
-    this.http.get<RecipesResponse>(uri).subscribe(({recipes, total}) => {
+    const uri = new UriBuilder().setPath('').setParameters<GetRecipesQueries>(queries).get();
+    this.http.get<RecipesResponse>(uri).pipe(debounceTime(1000)).subscribe(({recipes, total}) => {
       this.isLoading$$.next(false);
       this.recipes$$.next(recipes);
       this.total$$.next(total);
