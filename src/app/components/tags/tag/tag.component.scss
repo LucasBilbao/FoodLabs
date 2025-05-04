@@ -6,7 +6,7 @@ button{
   border: globals.pxToRem(2) solid globals.$MAIN_COLOR;
   border-radius: globals.pxToRem(15);
   padding: globals.pxToRem(6) globals.pxToRem(12);
-
+  white-space: nowrap;
 
   &:hover, &.selected{
     background: globals.$MAIN_COLOR;

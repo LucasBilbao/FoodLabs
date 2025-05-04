@@ -8,8 +8,10 @@ section.center{
     all: unset;
     display: flex;
     column-gap: globals.pxToRem(30);
+    row-gap: globals.pxToRem(25);
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 
     li{
       all: unset;

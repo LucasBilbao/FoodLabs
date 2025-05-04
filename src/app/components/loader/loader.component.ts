@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy, OnInit, signal} from '@angular/core';
 
 @Component({
   selector: 'fl-loader',
@@ -6,6 +6,17 @@ import { Component } from '@angular/core';
   templateUrl: './loader.component.html',
   styleUrl: './loader.component.scss'
 })
-export class LoaderComponent {
+export class LoaderComponent implements OnInit, OnDestroy {
+  public isLoadingForLong = signal<boolean>(false);
+
+    ngOnInit(): void {
+      setTimeout(() => {
+        this.isLoadingForLong.set(true);
+      }, 1.5 * 1000);
+    }
+
+    ngOnDestroy(): void {
+      this.isLoadingForLong.set(false);
+    }
 
 }

@@ -1,7 +1,7 @@
 <article>
   <img [src]="recipe().imgUrl" alt="" />
   <section>
-    <h3>{{ recipe().title }}</h3>
+    <h3>{{ recipe().title | truncate: 40}}</h3>
     <p>{{ recipe().description | truncate : 60 }}</p>
     <a [routerLink]="['/recipe', recipe().id]">See details</a>
   </section>

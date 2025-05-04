@@ -1,3 +1,4 @@
+@if(!isLoadingForLong()){
 <div class="loader">
   <div class="outer-box">
     <div class="middle-box">
@@ -5,3 +6,8 @@
     </div>
   </div>
 </div>
+} @else {
+  <p class="loader-text">
+    Please be patient, we are generating a recipe just for you.
+  </p>
+}

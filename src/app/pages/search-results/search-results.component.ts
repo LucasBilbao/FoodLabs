@@ -28,7 +28,10 @@ export class SearchResultsComponent extends BaseSubscribableComponent implements
     this.isLoading$.set(this.recipesFacade.isLoading$);
     this.addSubscription(activatedRoute.queryParams.subscribe(({ page, tags }) => {
       const pageNum = parseInt(page) || 1;
-      const finalTags = Array.isArray(tags) && tags.length > 0 ? tags.join(',') : undefined;
+      let finalTags: string | undefined = Array.isArray(tags) && tags.length > 0 ? tags.join(',') : undefined;
+      if (typeof tags === 'string') {
+        finalTags = tags;
+      }
       const { search } = this.activatedRoute.snapshot.queryParams;
 
       this.pageIndex.set(pageNum - 1);

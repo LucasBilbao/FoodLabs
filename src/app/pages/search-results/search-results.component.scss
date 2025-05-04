@@ -5,7 +5,7 @@
     margin-top: globals.pxToRem(50);
     h1 {
       text-align: center;
-      @include globals.font(39, 33, bold);
+      @include globals.font(39, 43, bold);
     }
   }
 

@@ -63,4 +63,23 @@ $border-width: 2.5px;
       }
     }
   }
+
+  .loader-text{
+    @include globals.font(30, 34, bold);
+    animation-name: fade-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-direction: alternate;
+  }
+}
+
+@keyframes fade-in-out {
+  from{
+    opacity: 0.5;
+  }
+
+  to{
+    opacity: 1;
+  }
 }
