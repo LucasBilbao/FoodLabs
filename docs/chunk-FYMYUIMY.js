@@ -1,0 +1,1 @@
+import{wa as t}from"./chunk-LFGB4HOS.js";var n=class o{scrollToTop(){window.scrollTo({top:0,behavior:"smooth"})}static \u0275fac=function(e){return new(e||o)};static \u0275cmp=t({type:o,selectors:[["ng-component"]],decls:0,vars:0,template:function(e,p){},encapsulation:2})};export{n as a};

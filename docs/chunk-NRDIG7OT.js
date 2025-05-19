@@ -1,0 +1,5 @@
+import{Ab as u,Db as f,Fa as c,Oa as s,Pa as m,ba as n,cb as p,db as l,ib as g,oa as o,tb as a,wa as r}from"./chunk-LFGB4HOS.js";var h=e=>({background:e}),b=class e{bgImg=n("https://plus.unsplash.com/premium_photo-1673108852141-e8c3c22a4a22?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZCUyMG9uJTIwdGFibGV8ZW58MHx8MHx8fDA%3D");title=n("Find and Share your favorite recipes!");background=a(()=>`linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ), url(${this.bgImg()}) no-repeat center center/cover`);static \u0275fac=function(t){return new(t||e)};static \u0275cmp=r({type:e,selectors:[["fl-bg"]],inputs:{bgImg:[1,"bgImg"],title:[1,"title"]},decls:3,vars:4,consts:[[3,"ngStyle"]],template:function(t,i){t&1&&(s(0,"section",0)(1,"h1"),p(2),m()()),t&2&&(c("ngStyle",g(2,h,i.background())),o(2),l(i.title()))},dependencies:[f,u],styles:["section[_ngcontent-%COMP%]{min-height:22.5rem;display:flex;align-items:center;justify-content:center}section[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%]{color:#fff;text-align:center;font-weight:700;font-size:2.5rem;line-height:1.1}"]})};export{b as a};
