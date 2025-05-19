@@ -1,22 +1,29 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {RecipeLong, RecipeShort, RecipesResponse} from '../interfaces/recipe.interface';
-import {BehaviorSubject, debounceTime, Observable, Subject} from 'rxjs';
-import {UriBuilder} from '../utils/uriBuilder';
-import {GetRecipesQueries} from '../interfaces/getRecipesQueries.interface';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import {
+  RecipeLong,
+  RecipeShort,
+  RecipesResponse,
+} from '../interfaces/recipe.interface';
+import { BehaviorSubject, debounceTime, Observable, Subject, tap } from 'rxjs';
+import { UriBuilder } from '../utils/uriBuilder';
+import { GetRecipesQueries } from '../interfaces/getRecipesQueries.interface';
+import { ApiPaths } from '../utils/ApiPaths.enum';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RecipesService {
-
-  private recipes$$: BehaviorSubject<RecipeShort[]> = new BehaviorSubject<RecipeShort[]>([]);
+  private recipes$$: BehaviorSubject<RecipeShort[]> = new BehaviorSubject<
+    RecipeShort[]
+  >([]);
   private recipe$$: Subject<RecipeLong> = new Subject<RecipeLong>();
   private total$$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  private isLoading$$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private isLoading$$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  );
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   public get isLoading$(): Observable<boolean> {
     return this.isLoading$$.asObservable();
@@ -46,26 +53,51 @@ export class RecipesService {
     this.total$$.next(value);
   }
 
-  public getRecipes(queries: GetRecipesQueries = { limit: 12, page: 1, tags: undefined, search: '' })  {
+  public getRecipes(
+    queries: GetRecipesQueries = {
+      limit: 12,
+      page: 1,
+      tags: undefined,
+      search: '',
+    }
+  ) {
     queries.page = queries.page || 1;
     queries.limit = queries.limit || 12;
     queries.tags = queries.tags || undefined;
     queries.search = queries.search || '';
 
     this.isLoading$$.next(true);
-    const uri = new UriBuilder().setPath('').setParameters<GetRecipesQueries>(queries).get();
-    this.http.get<RecipesResponse>(uri).pipe(debounceTime(1000)).subscribe(({recipes, total}) => {
-      this.isLoading$$.next(false);
-      this.recipes$$.next(recipes);
-      this.total$$.next(total);
-    });
+    const uri = new UriBuilder()
+      .setPath(ApiPaths.GET_RECIPES)
+      .appendQueries<GetRecipesQueries>(queries)
+      .build();
+    this.http
+      .get<RecipesResponse>(uri)
+      .pipe(debounceTime(1000))
+      .subscribe(({ recipes, total }) => {
+        this.isLoading$$.next(false);
+        this.recipes$$.next(recipes);
+        this.total$$.next(total);
+      });
   }
 
-  public getRecipe(id: string): void  {
+  public getRecipe(id: string): void {
     this.isLoading$$.next(true);
+    const uri = new UriBuilder()
+      .setPath(ApiPaths.GET_RECIPE)
+      .appendQueries({ id })
+      .build();
     this.http.get<RecipeLong>(id).subscribe((recipe: RecipeLong) => {
       this.recipe$$.next(recipe);
       this.isLoading$$.next(false);
     });
+  }
+
+  public generateRecipe(prompt: string = ''): Observable<{ id: string }> {
+    this.isLoading$$.next(true);
+    const uri = new UriBuilder().setPath(ApiPaths.REQUEST_RECIPE).build();
+    return this.http
+      .post<RecipeLong>(uri, { prompt })
+      .pipe(tap(() => this.isLoading$$.next(false)));
   }
 }

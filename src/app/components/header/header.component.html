@@ -4,6 +4,7 @@
     <ul class="unset">
       <li><a routerLink="/">Home</a></li>
       <li><a routerLink="/results">Recipes</a></li>
+      <li><a routerLink="/request">Request a recipe</a></li>
     </ul>
   </nav>
   <form (submit)="onSubmit($event)" [formGroup]="searchForm">
@@ -12,11 +13,19 @@
         <mat-icon>search</mat-icon>
       </button>
       <label for="search">Search</label>
-      <input formControlName="search" id="search" placeholder="Search" type="text"/>
-      <button (click)="onClearSearch()" [class.inactive]="!isClearable()" type="button">
+      <input
+        formControlName="search"
+        id="search"
+        placeholder="Search"
+        type="text"
+      />
+      <button
+        (click)="onClearSearch()"
+        [class.inactive]="!isClearable()"
+        type="button"
+      >
         <mat-icon>clear</mat-icon>
       </button>
     </fieldset>
   </form>
 </section>
-

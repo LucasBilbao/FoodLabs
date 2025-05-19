@@ -1,4 +1,4 @@
-import {Routes} from '@angular/router';
+import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
@@ -16,6 +16,13 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/search-results/search-results.component').then(
         (m) => m.SearchResultsComponent
+      ),
+  },
+  {
+    path: 'request',
+    loadComponent: () =>
+      import('./pages/request/request.component').then(
+        (m) => m.RequestComponent
       ),
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },

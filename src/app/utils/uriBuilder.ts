@@ -7,15 +7,20 @@ export class UriBuilder {
     return this;
   }
 
-  public setParameters<T>(parameters: T | any): UriBuilder {
-    this.parameters = Object.entries(parameters).reduce(
-      (prev, [key, value]) => value ? `${prev}${key}=${value}&` : prev,
+  public appendParameter(param: string) {
+    this.path = `${this.path}/${param}`;
+    return this;
+  }
+
+  public appendQueries<T>(queries: T | any): UriBuilder {
+    this.parameters = Object.entries(queries).reduce(
+      (prev, [key, value]) => (value ? `${prev}${key}=${value}&` : prev),
       ''
     );
     return this;
   }
 
-  public get() {
+  public build() {
     return `${this.path}?${this.parameters}`;
   }
 }

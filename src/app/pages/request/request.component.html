@@ -1,0 +1,24 @@
+@if (isLoading$() | async) {
+<fl-loader />
+} @else {
+<section class="center">
+  <form (submit)="onSubmit($event)" [formGroup]="promptForm">
+    <fieldset>
+      <legend>Request a recipe</legend>
+      <p>
+        You can request any recipe you'd like to see - just tell us what you're
+        craving!
+      </p>
+
+      <textarea
+        name="prompt"
+        id="prompt"
+        formControlName="prompt"
+        placeholder="I would like to have some..."
+      ></textarea>
+
+      <button type="submit">Send</button>
+    </fieldset>
+  </form>
+</section>
+}
